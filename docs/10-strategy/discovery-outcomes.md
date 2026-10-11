@@ -2,7 +2,7 @@
 id: STRAT-discovery-outcomes
 type: strategy
 title: Discovery outcomes
-status: draft
+status: accepted
 updated: 2026-10-11
 depends_on: [WORKFLOW]
 ---
