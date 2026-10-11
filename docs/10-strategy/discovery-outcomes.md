@@ -24,10 +24,13 @@ It produces three outputs. It ends when Mike has high confidence that they hold 
 - `DO-2.3` The existing homelab utilities available for reuse are inventoried.
 - `DO-2.4` Every major decision has an accepted ADR.
 - `DO-2.5` Rough data and event/message needs are described, based on expected data flows.
+- `DO-2.6` The environment strategy is decided (ADR): which environments exist, what each is for, and how a change is verified and promoted between them.
 
 ### DO-3 Implementation plan
 - `DO-3.1` A plan for implementing v1.0 exists.
 - `DO-3.2` Everything an agent needs to begin implementation is packaged as handoff briefs (see [WORKFLOW](../../WORKFLOW.md), "Hand off").
+- `DO-3.3` The destination for the code is decided (ADR).
+- `DO-3.4` The product has a working name, used for the destination and in the briefs.
 
 ## Rationale
 - Today the product can only be described in generalities. That is not enough to start building.
@@ -37,7 +40,7 @@ It produces three outputs. It ends when Mike has high confidence that they hold 
 - **Household only.** The product is for this household. Generalizing to others is not a goal.
 - **Homelab hosted.** It runs on the homelab and reuses as many existing utilities as possible, without hamstringing itself to do so.
 - **Proxy outcomes.** Mike and his wife are the only users who can speak for themselves. Outcomes for everyone else are written on their behalf.
-- **Documents, not code.** Discovery produces documents; building starts after it ends.
+- **No building in discovery.** This is a hard rule. Discovery produces documents and decisions only: no code, no repos, no environments. Anything decided here is created in implementation.
 - **Where the outputs land:**
 
 | Output | Location |
