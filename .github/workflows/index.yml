@@ -1,0 +1,22 @@
+name: index
+on:
+  push:
+    branches: [main]
+    paths: ["docs/**", "WORKFLOW.md", "scripts/build-index.py"]
+permissions:
+  contents: write
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/build-index.py
+      - name: commit if changed
+        run: |
+          if ! git diff --quiet INDEX.md; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add INDEX.md
+            git commit -m "chore(index): regenerate"
+            git push
+          fi

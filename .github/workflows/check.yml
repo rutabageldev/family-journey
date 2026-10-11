@@ -1,0 +1,25 @@
+name: check
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  frontmatter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: every doc parses and has required frontmatter
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          req = {"id","type","status","updated","depends_on"}
+          ok = True
+          for p in list(pathlib.Path("docs").rglob("*.md")) + [pathlib.Path("WORKFLOW.md")]:
+              if p.name == "README.md": continue
+              m = re.match(r"^---\n(.*?)\n---", p.read_text(encoding="utf-8"), re.S)
+              keys = {l.split(":",1)[0].strip() for l in (m.group(1).splitlines() if m else []) if ":" in l}
+              missing = req - keys
+              if missing:
+                  print(f"{p}: missing {sorted(missing)}"); ok = False
+          sys.exit(0 if ok else 1)
+          PY

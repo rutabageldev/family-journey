@@ -15,21 +15,22 @@ The GitHub repo `rutabageldev/family-journey`, branch `main`. Local clones (PC a
 | Where | How |
 |---|---|
 | Phone / web | Start a Claude session on the repo (GitHub link). "Pick up issue #N" or "Draft ADR-00NN: <topic>". Review the PR on the phone. |
-| Desktop app | Same, or a session linked to the local clone for hands-on editing alongside Obsidian/IDE. Commits here are pushed by Mike. |
+| Desktop app | Same, or a session linked to the local clone for hands-on editing alongside Obsidian/IDE. Commits here land on a branch and are pushed by Mike. |
 | Scheduled task | Weekly: regenerate `INDEX.md`, flag docs stuck in `review`, list accepted specs with no handoff brief, open issues for contradictions. |
 | Utility node | `git pull`, read `CLAUDE.md`, implement from `docs/50-handoff/`. |
 
 One claude.ai Project ("Family Journey") holds the standing instructions in `claude/project-instructions.md`. Every discovery chat is opened inside it, one chat per document or decision.
 
 ## Lifecycle
-1. **Dispatch** — open a GitHub issue with the `dispatch` template: target doc, question to answer, what it unblocks.
+1. **Capture** — drop a one-liner in `BACKLOG.md` from any device.
+1. **Dispatch** — promote it to a GitHub issue with the `dispatch` template: target doc, question to answer, what it unblocks. The backlog line becomes `#N`.
 2. **Draft** — one session per issue. Reads `CLAUDE.md` and the docs in `depends_on`, drafts on `draft/<id>-<slug>`, opens a PR.
 3. **Review** — Mike reviews the PR from any device; revisions go back to the same session or a fresh one referencing the PR.
-4. **Merge** — merge to `main`; status flips to `accepted`; `INDEX.md` regenerated.
+4. **Merge** — merge to `main`; status flips to `accepted`; the `index` workflow regenerates `INDEX.md`.
 5. **Maintain** — scheduled task keeps the index honest and surfaces gaps.
 6. **Hand off** — when a capability's spec and its ADRs are `accepted`, a session writes `docs/50-handoff/<capability>.md`. That brief is what the utility node agent is pointed at.
 
 ## Decision log for this process
 - 2026-10-11: GitHub repo as source of truth (not the OneDrive folder); local clone moved to `C:\opt\family-journey`.
-- 2026-10-11: PRs for drafted docs, direct commits for scaffolding and maintenance.
-- 2026-10-11: GitHub issues as the dispatch queue.
+- 2026-10-11: `main` is PR-only for everyone; `INDEX.md` is bot-maintained via the `index` workflow (the only bypass).
+- 2026-10-11: `BACKLOG.md` is the parking lot, GitHub issues are the shaped queue; backlog lines get promoted to issues.
