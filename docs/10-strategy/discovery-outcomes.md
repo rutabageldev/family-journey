@@ -11,7 +11,7 @@ depends_on: [WORKFLOW]
 ## Statement
 Discovery defines the shape of the product we are going to build, so that development starts with a clear understanding of where we are going instead of generalities.
 
-It produces three outputs. It ends when Mike has high confidence that they hold what is needed to implement v1.0, and that information is packaged for an agent to begin implementation. There is no deadline.
+It produces three outputs. It ends when Mike and his wife both have high confidence that they hold what is needed to implement v1.0, and that information is packaged for an agent to begin implementation. There is no deadline.
 
 ### DO-1 User outcomes
 - `DO-1.1` A list of outcomes, by user, that must be true to say the product has reached 1.0.
@@ -23,20 +23,21 @@ It produces three outputs. It ends when Mike has high confidence that they hold 
 - `DO-2.2` Each component has identified tooling and a source: existing homelab or net new.
 - `DO-2.3` The existing homelab utilities available for reuse are inventoried.
 - `DO-2.4` Every major decision has an accepted ADR.
-- `DO-2.5` Rough data and event/message needs are described, based on expected data flows.
+- `DO-2.5` Rough data and event/message needs exist at least as a draft, based on expected data flows.
 - `DO-2.6` The environment strategy is decided (ADR): which environments exist, what each is for, and how a change is verified and promoted between them.
 
 ### DO-3 Implementation plan
 - `DO-3.1` A plan for implementing v1.0 exists.
-- `DO-3.2` Everything an agent needs to begin implementation is packaged as handoff briefs (see [WORKFLOW](../../WORKFLOW.md), "Hand off").
+- `DO-3.2` Everything an agent needs is packaged as handoff briefs covering all of v1.0, not only the first slice. v1.0 is built once and discovery informs the whole of it (see [WORKFLOW](../../WORKFLOW.md), "Hand off").
 - `DO-3.3` The destination for the code is decided (ADR).
-- `DO-3.4` The product has a working name, used for the destination and in the briefs.
+- `DO-3.4` The product has a working name agreed by Mike and his wife, used for the destination and in the briefs.
 
 ## Rationale
 - Today the product can only be described in generalities. That is not enough to start building.
 - Implementation is handed to coding agents working from frozen briefs. Whatever discovery leaves vague, the agent has to guess.
 
 ## Implications
+- **Vision first.** The vision ([docs/00-vision.md](../00-vision.md)) is a separate doc and a prerequisite to DO-1.
 - **Household only.** The product is for this household. Generalizing to others is not a goal.
 - **Homelab hosted.** It runs on the homelab and reuses as many existing utilities as possible, without hamstringing itself to do so.
 - **Proxy outcomes.** Mike and his wife are the only users who can speak for themselves. Outcomes for everyone else are written on their behalf.
