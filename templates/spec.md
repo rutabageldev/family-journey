@@ -1,12 +1,14 @@
 ---
 id: SPEC-<area>-<slug>
 type: spec
-title: <capability or system concern>
+title: <capability>
 status: draft
 updated: YYYY-MM-DD
 depends_on: []
 ---
 # <title>
+
+A spec says what must be true for the user. It does not propose solutions or architecture; those belong in `docs/30-technical/` and the ADRs.
 
 ## Problem
 Who has it, when, and what it costs them today.
@@ -14,17 +16,20 @@ Who has it, when, and what it costs them today.
 ## Outcome
 What is true for the user when this works. Measurable where possible.
 
+## Outcomes delivered
+The `UO-n` ids from the user outcomes that this capability delivers.
+
 ## Scope
 ### In
 ### Out (non-goals)
 
 ## Functional expectations
-Numbered, testable statements. `FE-1`, `FE-2`, …
+Numbered, testable statements of what the user can do or rely on. `FE-1`, `FE-2`, …
 
-## Technical expectations
-Numbered constraints and quality attributes. `TE-1`, `TE-2`, …
+## Quality expectations
+Numbered statements of how well it must work, as the user experiences it: speed, reliability, privacy. `QE-1`, `QE-2`, … No technology choices.
 
-## Dependencies and decisions needed
-Specs this relies on; ADRs this needs before it can be handed off.
+## Decisions this raises
+Questions this spec leaves for the technical documents or an ADR.
 
 ## Open questions

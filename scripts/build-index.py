@@ -58,16 +58,9 @@ def render():
             lines.append(f"| {fm['id']} | {fm.get('title') or ''} | {fm.get('status','')} | {fm.get('updated','')} | {dep} | [{path}]({path}) |")
         lines.append("")
     # gaps
-    accepted_specs = [fm["id"] for _, fm in rows if fm.get("type") == "spec" and fm.get("status") == "accepted"]
-    briefed = set()
-    for _, fm in rows:
-        if fm.get("type") == "brief":
-            briefed.update(fm.get("depends_on") or [])
-    gaps = [s for s in accepted_specs if s not in briefed]
-    lines += ["## Gaps", ""]
-    lines += [f"- accepted spec with no handoff brief: `{g}`" for g in gaps] or ["- none"]
     stuck = [fm["id"] for _, fm in rows if fm.get("status") == "review"]
-    lines += [f"- in review: `{s}`" for s in stuck]
+    lines += ["## Gaps", ""]
+    lines += [f"- in review: `{s}`" for s in stuck] or ["- none"]
     return "\n".join(lines) + "\n"
 
 if __name__ == "__main__":

@@ -1,3 +1,3 @@
 # 50-handoff
 
-Frozen implementation briefs for coding agents. Only written once dependencies are accepted. Template: templates/brief.md
+The handoff document for the file drop to the coding agent. One document, written last, once everything it covers is accepted. Template: templates/handoff.md
