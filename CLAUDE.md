@@ -1,6 +1,6 @@
 # family-journey — agent conventions
 
-This repo is the **source of truth** for the Family OS product: vision, strategy, functional and technical expectations, architectural decisions, and implementation handoffs. Any agent working in this repo (discovery session or scheduled maintenance) reads this file first. Coding agents do not work here; see the last section.
+This repo is the **source of truth** for the Family OS product until v1.0 is implemented: vision, strategy, functional and technical expectations, architectural decisions, and the implementation handoff. Any agent reads this file first. Discovery sessions and scheduled maintenance write here; coding agents only read (see the last section).
 
 ## Ground rules
 - `main` is truth. A doc is only authoritative once merged and its frontmatter `status` is `accepted`.
@@ -24,7 +24,7 @@ This repo is the **source of truth** for the Family OS product: vision, strategy
 | `docs/20-product/` | User outcomes, and one spec per capability. Specs say what must be true for the user, never how | `templates/spec.md` |
 | `docs/30-technical/` | How the system is shaped: components, inventory, data and events, interfaces, system-level expectations | `templates/technical.md` |
 | `docs/40-adr/` | `ADR-NNNN-<slug>.md`, one decision each | `templates/adr.md` |
-| `docs/50-handoff/` | The one handoff document for the file drop to the coding agent | `templates/handoff.md` |
+| `docs/50-handoff/` | The one handoff document: the coding agent's entry point into this repo | `templates/handoff.md` |
 | `INDEX.md` | Generated catalogue of every doc, status, dependencies (bot-maintained) | — |
 | `BACKLOG.md` | Parking lot of unshaped ideas; feeds the issue queue | — |
 | `claude/` | Project instructions and prompts for Claude sessions | — |
@@ -39,7 +39,9 @@ This repo is the **source of truth** for the Family OS product: vision, strategy
 `draft` → `review` → `accepted` → `superseded` (ADRs) / `retired` (everything else).
 
 ## For coding agents (utility node)
-Nothing is handed to a coding agent until discovery has ended (`docs/10-strategy/discovery-outcomes.md`). The handoff is a file drop of the accepted docs into the target repo, not work done in this repo.
+Nothing is handed to a coding agent until discovery has ended (`docs/10-strategy/discovery-outcomes.md`). From then on the coding agent reads this repo directly. Nothing is copied into the code repository, so there is one copy of every doc.
 1. Start with the handoff document and follow its reading order.
-2. Your first deliverable is an implementation plan and roadmap for Mike's approval. Then build one milestone at a time.
-3. If a document is ambiguous or contradicts an ADR, stop and ask Mike rather than guessing.
+2. Your first deliverable is an implementation plan and roadmap for Mike's approval. Then build one milestone at a time, in the code repository.
+3. Do not edit this repo. If a document is ambiguous or contradicts an ADR, stop and ask Mike rather than guessing: open an issue here with the `question` label. Any resulting change to a doc lands here by PR.
+
+Once v1.0 is implemented, the code repository is the source of truth and this repo is a historical record.

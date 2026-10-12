@@ -1,3 +1,3 @@
 # 50-handoff
 
-The handoff document for the file drop to the coding agent. One document, written last, once everything it covers is accepted. Template: templates/handoff.md
+The handoff document: the coding agent's entry point into this repo. One document, written last, once everything it points to is accepted. Template: templates/handoff.md

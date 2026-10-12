@@ -35,7 +35,7 @@ Discovery ends when Mike judges that every item below is done. There is no deadl
 
 ### Implementation plan
 - `DO-10` A plan: what gets built in what order, what depends on what, and how v1.0 is checked against the outcomes.
-- `DO-11` One handoff document for the file drop to the coding agent: what is in it, the reading order, the shared constraints, and when to stop and ask. No open questions are left in the documents it covers.
+- `DO-11` One handoff document, the coding agent's entry point into this repo: what to read, the reading order, the shared constraints, and when to stop and ask. No open questions are left in the documents it covers.
 - `DO-12` A working name for the product, agreed with Mike's wife. "Family OS" is a placeholder until then.
 
 ## Rationale
