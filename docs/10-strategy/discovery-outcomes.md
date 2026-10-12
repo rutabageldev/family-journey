@@ -9,60 +9,41 @@ depends_on: [WORKFLOW]
 # Discovery outcomes
 
 ## Statement
-Discovery defines the shape of the product we are going to build, so that development starts with a clear understanding of where we are going instead of generalities.
+Discovery exists so that Mike has a solid understanding of what he is building before he builds it. That reduces rework and makes building faster.
 
-It produces three outputs: user outcomes, a tech stack, and an implementation plan. Discovery ends when every criterion below is met and Mike and his wife have both signed off on that (DO-4). There is no deadline.
+Discovery ends when Mike judges that every item below is done. There is no deadline. An item is done when it is written down and `accepted` on `main`.
 
-A criterion is met only by docs merged to `main` with status `accepted`.
+### Product
+- `DO-1` The outcomes that must be true to say the product has reached 1.0, listed by user. Each has an id (`UO-n`) and is stated so it can be observed true or false. The users are Mike, his wife, the baby, future children, the dog, house guests, and visiting family.
+- `DO-2` The outcomes considered and deferred past 1.0, each with a one-line reason.
+- `DO-3` Mike's wife has read the outcomes and agrees with them.
+- `DO-4` The capabilities of v1.0 are specified, each naming the outcomes it delivers.
 
-### DO-1 User outcomes
-- `DO-1.1` `docs/20-product/user-outcomes.md` lists, by user, the outcomes that must be true to say the product has reached 1.0. Each has an id (`UO-n`) and is stated so it can be observed true or false.
-- `DO-1.2` Each user has at least one outcome or an explicit "none for 1.0" entry. The users are Mike, his wife, the baby, future children, the dog, house guests, and visiting family.
-- `DO-1.3` Mike's wife has reviewed the outcomes for every user and signed off on the list.
-- `DO-1.4` A "Deferred" section in the same doc lists outcomes considered and deferred past 1.0, each with a one-line reason. It may be empty.
-- `DO-1.5` Every 1.0 outcome id is listed by at least one capability spec in `docs/20-product/` as an outcome it delivers.
+### Tech stack
+- `DO-5` The components, each with a one-line responsibility, the technology that implements it, and its source: existing homelab or net new.
+- `DO-6` An inventory of the existing homelab utilities available for reuse.
+- `DO-7` The data entities, flows, and events or messages v1.0 needs, in rough form. Schemas are not required.
+- `DO-8` The system-level expectations: identity and access, privacy, and backup and recovery.
+- `DO-9` An ADR for each major decision, including the environment strategy and which repository the code will live in. A decision is major if a coding agent would otherwise have to guess.
 
-### DO-2 Tech stack
-- `DO-2.1` A doc in `docs/30-technical/` lists each component with a one-line responsibility. Every capability spec names the components it uses, and none uses a component that is not on the list.
-- `DO-2.2` For each component, the list names the technology that implements it and its source: existing homelab or net new.
-- `DO-2.3` A doc in `docs/30-technical/` inventories the existing homelab utilities available for reuse.
-- `DO-2.4` Every major decision has an ADR. A decision is major if a brief depends on it or a coding agent would otherwise have to guess. Open decisions are tracked as dispatch issues. This is met when none are open and every ADR in any brief's `depends_on` is `accepted`.
-- `DO-2.5` A doc in `docs/30-technical/` names the data entities, flows, and events or messages v1.0 needs. Schemas are not required.
-- `DO-2.6` An ADR decides the environment strategy: which environments will exist, what each is for, and how a change is verified and promoted between them.
-- `DO-2.7` A doc in `docs/30-technical/` states the system-level expectations for v1.0, covering at least identity and access, privacy, and backup and recovery.
-
-### DO-3 Implementation plan
-- `DO-3.1` A plan in `docs/10-strategy/` lists every brief, the order and dependencies between them, and how v1.0 is verified against the DO-1 outcomes.
-- `DO-3.2` Every capability spec appears in at least one brief's `depends_on`, and no brief, or spec or ADR it depends on, has an unresolved open question. An open question is resolved when the doc or ADR it names as its resolver is `accepted`.
-- `DO-3.3` An ADR decides which repository the code will live in.
-- `DO-3.4` The product has a working name, signed off by Mike and his wife and recorded in the DO-3.3 ADR. It is used in the briefs, and for the repository if a new one is created. "Family OS" is a placeholder until then.
-
-### DO-4 Exit
-- `DO-4.1` An exit record in `docs/10-strategy/` lists every criterion above with a link to the evidence that it is met.
-- `DO-4.2` Mike and his wife have each signed off on the exit record.
+### Implementation plan
+- `DO-10` A plan: what gets built in what order, what depends on what, and how v1.0 is checked against the outcomes.
+- `DO-11` Briefs that cover all of v1.0, with no open questions left in them.
+- `DO-12` A working name for the product, agreed with Mike's wife. "Family OS" is a placeholder until then.
 
 ## Rationale
 - Today the product can only be described in generalities. That is not enough to start building.
-- Implementation is handed to coding agents working from frozen briefs. Whatever discovery leaves vague, the agent has to guess.
+- Implementation is handed to coding agents working from briefs. Whatever discovery leaves vague, the agent has to guess.
 
 ## Implications
-- **Vision first.** The vision ([docs/00-vision.md](../00-vision.md)) is a separate doc. It is `accepted` before the DO-1 list is accepted. The constraints below are restated here until then, and are cited from the vision afterwards.
+- **Vision first.** The vision ([docs/00-vision.md](../00-vision.md)) is a separate doc and comes before the outcomes (DO-1).
 - **Household only.** The product is for this household. Generalizing to others is not a goal.
 - **Homelab hosted.** It runs on the homelab and reuses as many existing utilities as possible, without hamstringing itself to do so.
-- **Proxy outcomes.** Mike and his wife are the only people consulted, and both are sources for the outcomes. Outcomes for everyone else are written on their behalf.
-- **No building in discovery.** This is a hard rule. Discovery produces documents and decisions only: no code, no code repositories, no environments. Anything decided here is created in implementation. No brief is assigned to a coding agent until discovery has ended (DO-4).
-- **v1.0 is planned once.** All of v1.0 is specified and briefed before any of it is built. Discovery is not reopened slice by slice. This does not rule out later versions.
-- **Briefs freeze at exit.** An accepted brief may be revised by PR until discovery ends, and is frozen from then on.
-- **Sign-off is recorded.** Mike's sign-off is his merge of the PR. His wife's is a dated line in the doc it applies to, added before that doc is accepted. A later change to that doc needs a fresh line.
-- **Deferrals are tracked.** Outcomes deferred past 1.0 go in the outcomes doc (DO-1.4). Anything else deferred goes under "Parked" in `BACKLOG.md` with a one-line reason.
-- **Where the outputs land:**
-
-| Output | Location |
-|---|---|
-| DO-1 | `docs/20-product/` |
-| DO-2 | `docs/30-technical/`, `docs/40-adr/` |
-| DO-3 | `docs/10-strategy/`, `docs/40-adr/`, `docs/50-handoff/` |
-| DO-4 | `docs/10-strategy/` |
+- **Proxy outcomes.** Mike and his wife are the only people consulted. Outcomes for everyone else are written on their behalf.
+- **No building in discovery.** This is a hard rule. Discovery produces documents and decisions only: no code, no code repositories, no environments. No brief is handed to a coding agent until discovery has ended.
+- **v1.0 is planned once.** All of v1.0 is specified and briefed before any of it is built. This does not rule out later versions.
+- **Deferrals are tracked.** Deferred outcomes are listed with the outcomes (DO-2). Anything else deferred goes under "Parked" in `BACKLOG.md` with a one-line reason.
+- **Items are not documents.** The list says what must be written down, not how many documents hold it.
 
 ## Review trigger
 - The set of users changes.
