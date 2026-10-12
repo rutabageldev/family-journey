@@ -4,6 +4,10 @@ The parking lot. Unshaped ideas, one line each, cheap to add from any device. Wh
 
 ## Inbox
 - Vision: capture Mike's framing of the problem, who it's for, what success looks like (`docs/00-vision.md`)
+- Handoff template: before writing the handoff doc, settle how later agent sessions find this repo and the approved plan, how the agent reaches reused homelab utilities (no hostnames here), and whether system-level expectations get ids the plan must cite (`templates/handoff.md`)
+- Index script: `depends_on` only parses on a single line; the handoff doc's list will be long (`scripts/build-index.py`)
+- Spec template: tidy when the first spec is drafted. "Outcome" and "Outcomes delivered" overlap, and user outcomes has no template of its own (`templates/spec.md`)
+- Process cleanup: project instructions say both "never touch INDEX.md" and "regenerate INDEX.md"; the `review` status is never used now that the PR sets `accepted` (`claude/project-instructions.md`, `CLAUDE.md`)
 
 ## Shaped → issue
 <!-- - #12 Event storage ADR -->
