@@ -1,3 +1,3 @@
 # 30-technical
 
-System-level expectations, constraints, interfaces, quality attributes. Template: templates/spec.md
+How the system is shaped: components, inventory, data and events, interfaces, system-level expectations. Template: templates/technical.md

@@ -1,3 +1,3 @@
 # 20-product
 
-Personas, jobs-to-be-done, one functional spec per capability. Template: templates/spec.md
+User outcomes, and one spec per capability. Specs say what must be true for the user, never how. Template: templates/spec.md
