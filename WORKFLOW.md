@@ -26,7 +26,7 @@ One claude.ai Project ("Family Journey") holds the standing instructions in `cla
 1. **Dispatch** — promote it to a GitHub issue with the `dispatch` template: target doc, question to answer, what it unblocks. The backlog line becomes `#N`.
 2. **Draft** — one session per issue. Reads `CLAUDE.md` and the docs in `depends_on`, drafts on `draft/<id>-<slug>`, opens a PR.
 3. **Review** — Mike reviews the PR from any device; revisions go back to the same session or a fresh one referencing the PR.
-4. **Merge** — merge to `main`; status flips to `accepted`; the `index` workflow regenerates `INDEX.md`.
+4. **Merge** — the PR sets `status: accepted`, and merging to `main` is the acceptance. The `index` workflow regenerates `INDEX.md`.
 5. **Maintain** — scheduled task keeps the index honest and surfaces gaps.
 6. **Hand off** — the handoff document in `docs/50-handoff/` is written last. When discovery has ended ([discovery outcomes](docs/10-strategy/discovery-outcomes.md)), the accepted docs are dropped into the target repo and the coding agent starts from the handoff document. Nothing is handed to a coding agent before then. Sessions that help write docs are unaffected.
 

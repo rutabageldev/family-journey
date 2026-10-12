@@ -24,7 +24,14 @@ Discovery ends when Mike judges that every item below is done. There is no deadl
 - `DO-6` An inventory of the existing homelab utilities available for reuse.
 - `DO-7` The data entities, flows, and events or messages v1.0 needs, in rough form, including the interfaces between components. Schemas are not required.
 - `DO-8` The system-level expectations: identity and access, privacy, and backup and recovery.
-- `DO-9` An ADR for each major decision, including the environment strategy and which repository the code will live in. A decision is major if a coding agent would otherwise have to guess.
+- `DO-9` An ADR for each major decision, including the environment strategy and which repository the code will live in. A decision is major if any of these is true:
+  - It has major architectural implications.
+  - It is a closed door: changing it later would be difficult.
+  - It has a large blast radius: it affects more than one feature or component, and changing it later means reworking each of them.
+  - It addresses a security, privacy, or data-loss risk.
+  - It adds something new to run where an existing homelab utility could have been reused.
+
+  Everything else the coding agent proposes in its implementation plan, for Mike's approval.
 
 ### Implementation plan
 - `DO-10` A plan: what gets built in what order, what depends on what, and how v1.0 is checked against the outcomes.
@@ -44,7 +51,7 @@ Discovery ends when Mike judges that every item below is done. There is no deadl
 - **v1.0 is planned once.** All of v1.0 is specified before any of it is built. This does not rule out later versions.
 - **What and how are separate.** Specs say what must be true for the user. Technical documents and ADRs say how the system is shaped. The handoff document tells the agent how to use both. There are no per-capability briefs.
 - **Deferrals are tracked.** Deferred outcomes are listed with the outcomes (DO-2). Anything else deferred goes under "Parked" in `BACKLOG.md` with a one-line reason.
-- **Items are not documents.** The list says what must be written down, not how many documents hold it.
+- **Items are not documents.** The list says what must be written down, not how many documents hold it. The exception is DO-5 to DO-8: they stay separate documents, so the implementing agent reads only the one relevant to its current work.
 
 ## Review trigger
 - The set of users changes.
