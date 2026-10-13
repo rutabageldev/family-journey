@@ -40,7 +40,7 @@ This household only. The users are the ones listed in DO-1. The two parents are 
 - **Commitments and owners are the core.** A calendar event is one kind of commitment. Chores, activities, and care routines are others. The user outcomes (DO-1) are written around who is responsible for what.
 - **It has to earn daily use from the start.** It cannot wait for older children to become useful. There are commitments now, with a baby in the house.
 - **This document is the proposal for Mike's wife.** It is accepted without her review so that she has something concrete to read. Her agreement to the outcomes is still required (DO-3).
-- **Phones first.** Phones are the one definite way in. A kiosk in the main living area follows if Mike's wife likes the product, for quick reference and so the children can use it. Kiosks in other rooms only if they prove worthwhile. Mike leans toward a web app; that is a tech-stack decision (DO-5, DO-9).
+- **Phones first.** Phones are the one definite way in. A kiosk in the main living area follows if Mike's wife likes the product, for quick reference and so the children can use it. Kiosks in other rooms only if they prove worthwhile. How it is built is a tech-stack decision (DO-5, DO-9).
 - **Not a Skylight clone, not a dashboard.** A feature-for-feature copy of Skylight is ruled out, and so is a re-skin of what Home Assistant already shows.
 - **Home Assistant is not being judged for automation.** Whether the product reuses it is a tech-stack question (DO-5, DO-6).
 - **Constraints are inherited.** Household only, homelab hosted, and proxy outcomes are set in [discovery outcomes](10-strategy/discovery-outcomes.md) and are not restated here.
