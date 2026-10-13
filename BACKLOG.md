@@ -13,3 +13,4 @@ The parking lot. Unshaped ideas, one line each, cheap to add from any device. Wh
 
 ## Parked
 <!-- ideas deliberately not being pursued yet, with a one-line reason -->
+- Smart home controls for guests without Home Assistant, so they can control the shared space. Parked while framing the vision: Mike called it possible scope creep.
